@@ -74,11 +74,16 @@ char *get_executable_path(char *epath, size_t buflen)
     else
     {
         char *sp;
-        char *xpath = strdup(getenv("PATH"));
-        char *path = strtok_r(xpath, ":", &sp);
+        const char *path_env = getenv("PATH");
+        char *xpath;
+        char *path;
         struct stat st;
+        if (!path_env)
+            abort();
+        xpath = strdup(path_env);
         if (!xpath)
             abort();
+        path = strtok_r(xpath, ":", &sp);
         while (path)
         {
             snprintf(epath, buflen, "%s/%s", path, comm);

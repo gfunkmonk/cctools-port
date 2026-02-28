@@ -2,12 +2,12 @@
 
 set -ex
 
-DIR=`pwd`
-PACKAGETMP=`mktemp -d /tmp/XXXXXXXX`
+DIR=$(pwd)
+PACKAGETMP=$(mktemp -d /tmp/XXXXXXXX)
 
-REVHASH=`git rev-parse --short HEAD`
-CCTOOLSVER=`cat README.md | grep "Current Version: " | awk '{print $3}'`
-LD64VER=`cat README.md | grep "Current Version: " | awk '{print $5}'`
+REVHASH=$(git rev-parse --short HEAD)
+CCTOOLSVER=$(cat README.md | grep "Current Version: " | awk '{print $3}')
+LD64VER=$(cat README.md | grep "Current Version: " | awk '{print $5}')
 
 PACKAGE=cctools-${CCTOOLSVER}-${LD64VER%?}_$REVHASH
 

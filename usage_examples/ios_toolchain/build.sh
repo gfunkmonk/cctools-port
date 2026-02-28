@@ -28,7 +28,7 @@ set -e
 function verbose_cmd
 {
     echo "$@"
-    eval "$@"
+    "$@"
 }
 
 function extract()
@@ -167,10 +167,10 @@ ln -sf $TRIPLE-lipo lipo
 popd &>/dev/null
 
 verbose_cmd cc -O2 -Wall -Wextra -pedantic wrapper.c \
-    -DSDK_DIR=\"\\\"$WRAPPER_SDKDIR\\\"\" \
-    -DTARGET_CPU=\"\\\"$2\\\"\" \
-    -DOS_VER_MIN=\"\\\"$SDK_VERSION\\\"\" \
-    -o $TARGETDIR/bin/$TRIPLE-clang
+    "-DSDK_DIR=\"$WRAPPER_SDKDIR\"" \
+    "-DTARGET_CPU=\"$2\"" \
+    "-DOS_VER_MIN=\"$SDK_VERSION\"" \
+    -o "$TARGETDIR/bin/$TRIPLE-clang"
 
 pushd $TARGETDIR/bin &>/dev/null
 verbose_cmd ln -sf $TRIPLE-clang $TRIPLE-clang++
