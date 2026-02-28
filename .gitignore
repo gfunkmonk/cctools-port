@@ -9,3 +9,13 @@ Makefile
 cctools/config.log
 cctools/config.status
 cctools/libtool
+cctools/INSTALL
+cctools/aclocal.m4
+cctools/autom4te.cache/
+cctools/configure~
+cctools/m4/libtool.m4
+cctools/m4/ltoptions.m4
+cctools/m4/ltsugar.m4
+cctools/m4/ltversion.m4
+cctools/m4/lt~obsolete.m4
+_codeql_detected_source_root
